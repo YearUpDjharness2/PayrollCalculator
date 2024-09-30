@@ -19,11 +19,13 @@ public class PayrollCalculatorSimple {
         float payRate = scanner.nextFloat();
 
         //calculate
-        float grosspay = hoursWorked * payRate;
-
+        float grossPay = (hoursWorked > 40)
+                ? (40 * payRate + (hoursWorked - 40) * payRate * 1.5f)
+                : (hoursWorked * payRate);
         //display
         System.out.printf("Employee Name; %s%n ",name);
-        System.out.printf("Gross Pay: $%.2f%n ",grosspay);
+        System.out.printf("Gross Pay: $%.2f%n ",grossPay);
+
 
 
 
